@@ -10,6 +10,6 @@ stage('checkout')
  stage('Deploy')
 
         {
-         sh 'terraform init'
+         sh 'sudo terraform init $JENKINS_PATH/workspace/ee'
         }
 }

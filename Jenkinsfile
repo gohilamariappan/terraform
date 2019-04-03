@@ -5,7 +5,7 @@ node('master')
 stage('checkout')
 
         {
-         git checkout
+          checkout scm
         }
 
 }

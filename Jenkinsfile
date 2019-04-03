@@ -8,8 +8,8 @@ stage('checkout')
           checkout scm
         }
  stage('Deploy')
-  dir ('ee') 
+  
         {
-         sh ('sudo terraform init')
+         sh 'terraform init'
         }
 }

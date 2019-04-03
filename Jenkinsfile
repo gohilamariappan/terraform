@@ -11,7 +11,7 @@ stage('checkout')
   
         {
          sh 'terraform init'
-         sh 'terraform plan'
-         sh 'terraform apply'       
+         sh 'terraform plan -out=plan'
+         sh 'terraform apply plan'       
         }
 }

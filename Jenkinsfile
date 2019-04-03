@@ -7,5 +7,9 @@ stage('checkout')
         {
           checkout scm
         }
+ stage('Deploy')
 
+        {
+         sh 'terraform init'
+        }
 }

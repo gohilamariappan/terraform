@@ -1,6 +1,6 @@
 provider "aws" {
-  access_key = "${var.AWS_SECRET_ACCESS_KEY}"
-  secret_key = "${var.AWS_SECRET_ACCESS_KEY}"
+  access_key = ""
+  secret_key = ""
   region     = "us-east-2"
 }
 resource "aws_instance" "web" {

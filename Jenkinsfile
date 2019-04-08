@@ -17,8 +17,13 @@ stage('checkout')
          set +e
          sh 'terraform init' 
 			
-	sh'terraform plan -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}' -out=plan' 
-	sh 'terraform apply  -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}' -auto-approve plan'
+	//sh'terraform plan -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}' -out=plan' 
+		//sh 'terraform apply  -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}' -auto-approve plan'
+	sh label: '', script: '''	terraform plan -var aws_access_key_id=\'${Access}\' -var aws_secret_access_key=\'${Secret}\' -out=plan 
+	'''
+	sh label: '', script: '''	terraform apply  -var aws_access_key_id=\'${Access}\' -var aws_secret_access_key=\'${Secret}\' -auto-approve plan
+	'''
+
 }
         }
 }

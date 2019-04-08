@@ -11,11 +11,11 @@ stage('checkout')
   
         {
 		withCredentials([
-    Secrettext(credentialsId: IAM_ACCESS_KEY, Variable: 'Access'),
-    Secrettext(credentialsId: IAM_SECRET_KEY , Variable: 'Secret')
+    string(credentialsId: 'IAM_ACCESS_KEY', Variable: 'Access'),
+    string(credentialsId: 'IAM_SECRET_KEY' , Variable: 'Secret')
 ]){
          set +e
-         sh 'terraform init' &&'terraform plan -out=plan' && 'terraform apply  -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}' -auto-approve plan'
+         sh 'terraform init' &&'terraform plan -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}'-out=plan' && 'terraform apply  -var aws_access_key_id='${Access}' -var aws_secret_access_key='${Secret}' -auto-approve plan'
 }
         }
 }

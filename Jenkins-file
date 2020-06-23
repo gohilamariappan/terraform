@@ -1,7 +1,7 @@
 #!groovy
 
 node('master')
-def commit_id=sh(script:'git rev-parse --short HEAD', returnStdout:true)
+//def commit_id=sh(script:'git rev-parse --short HEAD', returnStdout:true)
 {
 stage('checkout')
 
